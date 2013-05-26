@@ -21,12 +21,12 @@ namespace TweetdeckSucks
 
     private void Load()
     {
-      if (File.Exists(this.filename)) {
-        this.keys = File.ReadLines(this.filename)
-                        .Select(s => s.Split(new[] {'='}, 2))
-                        .Where(strings => strings.Length == 2)
-                        .ToDictionary(strings => strings[0], strings => strings[1]);
-      }
+      this.keys = (File.Exists(this.filename))
+                    ? File.ReadLines(this.filename)
+                          .Select(s => s.Split(new[] {'='}, 2))
+                          .Where(strings => strings.Length == 2)
+                          .ToDictionary(strings => strings[0], strings => strings[1])
+                    : new Dictionary<string, string>();
     }
 
     public void Save()
