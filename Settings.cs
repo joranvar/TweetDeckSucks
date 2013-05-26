@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace TweetdeckSucks
 {
-  public class Settings
+  public class Settings : ISettings
   {
     private readonly string filename;
 
@@ -39,6 +39,7 @@ namespace TweetdeckSucks
       this.Load();
     }
 
+    // TODO: is this ever used and why?
     public string GetFilename()
     {
       return this.filename;
